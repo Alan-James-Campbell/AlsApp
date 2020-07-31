@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-alsapp-dev-180845-authRole",
+            "UnauthRoleArn": "arn:aws:iam::880677445280:role/amplify-alsapp-dev-180845-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::880677445280:role/amplify-alsapp-dev-180845-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-alsapp-dev-180845-deployment",
+            "UnauthRoleName": "amplify-alsapp-dev-180845-unauthRole",
+            "StackName": "amplify-alsapp-dev-180845",
+            "StackId": "arn:aws:cloudformation:us-east-2:880677445280:stack/amplify-alsapp-dev-180845/63c84f00-d2ca-11ea-bdb9-02f6456406e2",
+            "AmplifyAppId": "d38y2k9cvp30eg"
+        },
+        "categories": {
+            "auth": {
+                "alsapp84286fcc": {}
+            }
+        }
+    }
+}
