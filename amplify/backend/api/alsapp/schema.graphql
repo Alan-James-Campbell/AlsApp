@@ -1,6 +1,18 @@
-type Blog @model @auth(rules: [{ allow: owner, queries: null }]) {
+type Blog @model @auth(rules: [{ allow: owner, queries: null, ownerField: "createdBy" }]) {
   id: ID!
   title: String!
   body: String
   private: Boolean!
+  tags: [String]
+  createdBy: String
+  comments: [Comment] @connection(name: "BlogComments")
 }
+
+type Comment @model @auth(rules: [{ allow: owner, queries: null, ownerField: "createdBy" }]) {
+  id: ID!
+  text: String!
+  reaction: String
+  createdBy: String
+  blog: Blog @connection(name: "BlogComments")
+}
+

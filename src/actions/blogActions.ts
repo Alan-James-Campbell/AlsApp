@@ -1,7 +1,7 @@
 import { BlogActionTypes, BLOG_REFRESH_PUBLIC_LIST, BLOG_NEWLY_CREATED_BLOG } from '../types/blog'
 import gql from 'graphql-tag';
 import { listPublicBlogs } from '../graphql/blogs/queries'
-import { createBlog } from '../graphql/mutations'
+import { createNewBlog } from '../graphql/blogs/mutations'
 
 
 export const refreshPublicBlogList = (blogs: Array<Object>): BlogActionTypes => ({ type: BLOG_REFRESH_PUBLIC_LIST, payload: blogs })
@@ -16,10 +16,10 @@ export const getAllPublicBlogs = (client: any) => (dispatch: any) => {
     .catch((err: any) => console.log(err))
 }
 
-export const createNewBlog = (client: any, blogBody: object) => (dispatch: any) => {
+export const createNewBlogAction = (client: any, blogBody: object) => (dispatch: any) => {
 
   client.mutate({ 
-    mutation: gql(createBlog),
+    mutation: gql(createNewBlog),
     variables: {input: blogBody}
   })
   .then(({data}: any) => {

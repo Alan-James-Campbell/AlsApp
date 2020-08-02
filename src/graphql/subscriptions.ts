@@ -9,6 +9,11 @@ export const onCreateBlog = /* GraphQL */ `
       title
       body
       private
+      tags
+      createdBy
+      comments {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -21,6 +26,11 @@ export const onUpdateBlog = /* GraphQL */ `
       title
       body
       private
+      tags
+      createdBy
+      comments {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -33,6 +43,77 @@ export const onDeleteBlog = /* GraphQL */ `
       title
       body
       private
+      tags
+      createdBy
+      comments {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateComment = /* GraphQL */ `
+  subscription OnCreateComment {
+    onCreateComment {
+      id
+      text
+      reaction
+      createdBy
+      blog {
+        id
+        title
+        body
+        private
+        tags
+        createdBy
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateComment = /* GraphQL */ `
+  subscription OnUpdateComment {
+    onUpdateComment {
+      id
+      text
+      reaction
+      createdBy
+      blog {
+        id
+        title
+        body
+        private
+        tags
+        createdBy
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteComment = /* GraphQL */ `
+  subscription OnDeleteComment {
+    onDeleteComment {
+      id
+      text
+      reaction
+      createdBy
+      blog {
+        id
+        title
+        body
+        private
+        tags
+        createdBy
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
