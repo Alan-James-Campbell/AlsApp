@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import NavigationDrawer from '../NavigationDrawer'
 import { AppBar, Badge, Drawer, IconButton, InputBase, MenuItem, Toolbar, Typography, Menu } from '@material-ui/core'
-import { AccountCircle, Mail as MailIcon, Menu as MenuIcon, MoreVert as MoreIcon, Notifications as NotificationsIcon, Search as SearchIcon } from '@material-ui/icons'
+import { AccountCircle, Mail as MailIcon, Menu as MenuIcon, MoreVert as MoreIcon, Notifications as NotificationsIcon, Search as SearchIcon, WbSunny as SunIcon} from '@material-ui/icons'
 import { Auth } from 'aws-amplify'
-import { useStyles } from '../navigationStyles'
+import { useNavigationStyles } from '../navigationStyles'
+import './NavigationHeader.css'
+import ReactToolTip from 'react-tooltip'
 
 const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: NavigationHeaderProps) => {
-  const classes = useStyles()
+  const classes = useNavigationStyles()
   const [anchorEl, setAnchorEl] = useState(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event: any) => setAnchorEl(event.currentTarget)
   
   const handleMobileMenuClose = () => setMobileMoreAnchorEl(null)
 
@@ -42,6 +42,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
+      classes={{paper: classes.mobileMenuPaper}}
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={mobileMenuId}
@@ -50,6 +51,12 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem>
+      <IconButton aria-label='weatherButton' color='secondary'>
+          <SunIcon />
+          Weather
+      </IconButton>
+      </MenuItem>
       {/* <MenuItem>
         <IconButton aria-label='show 4 new mails' color='inherit'>
           <Badge badgeContent={4} color='secondary'>
@@ -57,8 +64,8 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
+      </MenuItem> */}
+      {/* <MenuItem>
         <IconButton aria-label='show 11 new notifications' color='inherit'>
           <Badge badgeContent={11} color='secondary'>
             <NotificationsIcon />
@@ -66,7 +73,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
         </IconButton>
         <p>Notifications</p>
       </MenuItem> */}
-      <MenuItem onClick={handleProfileMenuOpen}>
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label='account of current user'
           aria-controls='primary-search-account-menu'
@@ -76,52 +83,48 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position='static'>
+      <AppBar 
+        position='fixed'
+        classes={{root: classes.appBar}}
+      >
         <Toolbar>
+          <ReactToolTip/>
           <IconButton
             edge='start'
             className={classes.menuButton}
-            color='inherit'
+            color='secondary'
             aria-label='open drawer'
             onClick={e => toggleNavigationDrawer(!isNavigationDrawerOpen)}
           >
-            <MenuIcon />
+            <MenuIcon id='navHeaderHamburgerIcon'/>
           </IconButton>
-          <Typography className={classes.title} variant='h6' noWrap>
-            ManageMe
+          <Typography className={classes.grow} variant='h6' id='navHeaderTitle' color='secondary' noWrap>
+            Havasu Parasail
           </Typography>
-          {/* <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder='Search…'
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div> */}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+            <IconButton color='secondary'>
+              <SunIcon 
+                data-tip='Local Weather'
+              />
+            </IconButton>
             {/* <IconButton aria-label='show 4 new mails' color='inherit'>
               <Badge badgeContent={4} color='secondary'>
                 <MailIcon />
               </Badge>
-            </IconButton>
-            <IconButton aria-label='show 17 new notifications' color='inherit'>
+            </IconButton> */}
+            {/* <IconButton aria-label='show 17 new notifications' color='inherit'>
               <Badge badgeContent={17} color='secondary'>
                 <NotificationsIcon />
               </Badge>
             </IconButton> */}
-            <IconButton
+            {/* <IconButton
               edge='end'
               aria-label='account of current user'
               aria-controls={menuId}
@@ -130,7 +133,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
               color='inherit'
             >
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -138,7 +141,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
               aria-controls={mobileMenuId}
               aria-haspopup='true'
               onClick={handleMobileMenuOpen}
-              color='inherit'
+              color='secondary'
             >
               <MoreIcon />
             </IconButton>

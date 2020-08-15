@@ -8,8 +8,6 @@ const BlogForm = ({ createNewBlogAction, client }: BlogFormProps) => {
     const [inputTitle, updateInputTitle] = useState('')
     const [inputBody, updateInputBody] = useState('')
 
-
-
     const handlePrivacyCheck = (e: any) => updateInputPrivate(e.target.checked)
     const handleTitleChange = (e: any) => updateInputTitle(e.target.value)
     const handleBodyChange = (e: any) => updateInputBody(e.target.value)
@@ -20,7 +18,6 @@ const BlogForm = ({ createNewBlogAction, client }: BlogFormProps) => {
       const body = {
           title: inputTitle,
           body: inputBody,
-          private: inputPrivate
       }
 
       createNewBlogAction(client, body)
@@ -63,6 +60,7 @@ const BlogForm = ({ createNewBlogAction, client }: BlogFormProps) => {
                                     <Checkbox
                                         checked={inputPrivate}
                                         onChange={handlePrivacyCheck}
+                                        color={'primary'}
                                     />}
                                 label='Private'
                                 labelPlacement='end'
@@ -82,8 +80,6 @@ const BlogForm = ({ createNewBlogAction, client }: BlogFormProps) => {
         </div>
     )
 }
-
-
 
 export default BlogForm
 

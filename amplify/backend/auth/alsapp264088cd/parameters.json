@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "alsapp84286fcc_identitypool_84286fcc",
+    "identityPoolName": "alsapp264088cd_identitypool_264088cd",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "alsapp84286fcc",
-    "userPoolName": "alsapp84286fcc_userpool_84286fcc",
+    "resourceNameTruncated": "alsapp264088cd",
+    "userPoolName": "alsapp264088cd_userpool_264088cd",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "alsapp84286fcc_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "alsapp264088cd_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "84286fcc",
-    "resourceName": "alsapp84286fcc",
+    "sharedId": "264088cd",
+    "resourceName": "alsapp264088cd",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

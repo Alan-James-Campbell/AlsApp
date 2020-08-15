@@ -1,10 +1,9 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter'
-import ListAltIcon from '@material-ui/icons/ListAlt'
-import CreateIcon from '@material-ui/icons/Create'
 import HomeIcon from '@material-ui/icons/Home'
+import CalendarIcon from '@material-ui/icons/Today'
+
 
 import './NavigationDrawer.css'
 
@@ -13,7 +12,8 @@ const NavigationDrawer = ({ isNavigationDrawerOpen, toggleNavigationDrawer }: Na
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
-  const handleRouteClick = (route: string) => {
+  const handleRouteClick = (e: any, route: string) => {
+    e.preventDefault()
     navigate(route)
     toggleNavigationDrawer(!isNavigationDrawerOpen)
   }
@@ -33,8 +33,9 @@ const NavigationDrawer = ({ isNavigationDrawerOpen, toggleNavigationDrawer }: Na
                 <ListItem
                   key={key}
                   button
+                  disabled={pathname === name}
                   selected={pathname === name}
-                  onClick={e => handleRouteClick(name)}
+                  onClick={e => handleRouteClick(e, name)}
                 >
                   <ListItemIcon>
                     {icon}
@@ -71,18 +72,8 @@ const listItemRouteList = [
     icon: <HomeIcon/>
   },
   {
-    name: '/my-blog',
-    label: 'MyBlog',
-    icon: <CreateIcon/>
-  },
-  {
-    name: '/my-todo-list',
-    label: 'MyToDoList',
-    icon: <ListAltIcon/>
-  },
-  {
-    name: '/my-gains',
-    label: 'MyGains',
-    icon: <FitnessCenterIcon/>
+    name: '/reservations',
+    label: 'Reservations',
+    icon: <CalendarIcon/>
   }
 ]

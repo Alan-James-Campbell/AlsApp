@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { withAuthenticator } from 'aws-amplify-react'
-import Navigation from '../Navigation/NavigationHeader'
-import './Main.css'
+import './Admin.css'
 
 const Main = ({appSyncClient, establishAppSyncClient}: MainProps) => {
 
@@ -13,7 +12,7 @@ const Main = ({appSyncClient, establishAppSyncClient}: MainProps) => {
 
   return (
     <div>
-      <Navigation/>
+      Admin Page
     </div>
   )
 }

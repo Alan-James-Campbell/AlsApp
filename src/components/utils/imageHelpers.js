@@ -1,0 +1,1 @@
+export const getImageUrl = fileName => `${process.env.PUBLIC_URL}/images/${fileName}`

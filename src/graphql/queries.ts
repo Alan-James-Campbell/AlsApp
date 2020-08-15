@@ -8,12 +8,10 @@ export const getBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -30,8 +28,6 @@ export const listBlogs = /* GraphQL */ `
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
@@ -44,19 +40,17 @@ export const getComment = /* GraphQL */ `
   query GetComment($id: ID!) {
     getComment(id: $id) {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }
@@ -71,8 +65,8 @@ export const listComments = /* GraphQL */ `
     listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        text
-        reaction
+        blogID
+        content
         createdBy
         createdAt
         updatedAt

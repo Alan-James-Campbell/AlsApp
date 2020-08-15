@@ -1,4 +1,4 @@
-import Main from './mainComponent'
+import Admin from './adminComponent'
 import { RootState } from '../../reducers/rootReducer'
 import { connect } from 'react-redux'
 import { establishAppSyncClient } from '../../actions/sessionActions'
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Admin)

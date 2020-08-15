@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"alsapp84286fcc": {
+		"alsapp264088cd": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
@@ -17,7 +17,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authalsapp84286fcc"
+							"userPoolId": "authalsapp264088cd"
 						}
 					}
 				}

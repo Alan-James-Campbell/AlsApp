@@ -8,12 +8,10 @@ export const onCreateBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -25,12 +23,10 @@ export const onUpdateBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -42,12 +38,10 @@ export const onDeleteBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -57,19 +51,17 @@ export const onCreateComment = /* GraphQL */ `
   subscription OnCreateComment {
     onCreateComment {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }
@@ -79,19 +71,17 @@ export const onUpdateComment = /* GraphQL */ `
   subscription OnUpdateComment {
     onUpdateComment {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }
@@ -101,19 +91,17 @@ export const onDeleteComment = /* GraphQL */ `
   subscription OnDeleteComment {
     onDeleteComment {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }

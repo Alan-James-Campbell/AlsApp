@@ -11,12 +11,10 @@ export const createBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -31,12 +29,10 @@ export const updateBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -51,12 +47,10 @@ export const deleteBlog = /* GraphQL */ `
       id
       title
       body
-      private
-      tags
-      createdBy
       comments {
         nextToken
       }
+      createdBy
       createdAt
       updatedAt
     }
@@ -69,19 +63,17 @@ export const createComment = /* GraphQL */ `
   ) {
     createComment(input: $input, condition: $condition) {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }
@@ -94,19 +86,17 @@ export const updateComment = /* GraphQL */ `
   ) {
     updateComment(input: $input, condition: $condition) {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }
@@ -119,19 +109,17 @@ export const deleteComment = /* GraphQL */ `
   ) {
     deleteComment(input: $input, condition: $condition) {
       id
-      text
-      reaction
-      createdBy
+      blogID
       blog {
         id
         title
         body
-        private
-        tags
         createdBy
         createdAt
         updatedAt
       }
+      content
+      createdBy
       createdAt
       updatedAt
     }

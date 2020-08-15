@@ -1,0 +1,19 @@
+#navHeaderTitle {
+  font-family: 'Lobster';
+  font-size: 25px;
+  flex-grow: 4;
+}
+#navHeaderHamburgerIcon {
+    font-size: 30px;
+}
+
+@media screen and (min-width: 601px) {
+    #navHeaderTitle {
+        font-family: 'Lobster';
+        font-size: 30px;
+      }
+      #navHeaderHamburgerIcon {
+        font-size: 35px;
+      }
+  }
+
