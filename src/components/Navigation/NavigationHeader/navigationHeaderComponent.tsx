@@ -140,7 +140,6 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
               <LocationOnIcon data-tip='Location'/>
             </IconButton>
 
-
             <IconButton color='secondary'>
               <SunIcon data-tip='Local Weather'/>
             </IconButton>
