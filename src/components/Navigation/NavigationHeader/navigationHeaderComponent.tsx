@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import NavigationDrawer from '../NavigationDrawer'
 import { AppBar, Badge, Drawer, IconButton, InputBase, MenuItem, Toolbar, Typography, Menu } from '@material-ui/core'
-import { AccountCircle, Mail as MailIcon, Menu as MenuIcon, MoreVert as MoreIcon, Notifications as NotificationsIcon, Search as SearchIcon, WbSunny as SunIcon} from '@material-ui/icons'
+import { AccountCircle, Mail as MailIcon, Menu as MenuIcon, MoreVert as MoreIcon, Notifications as NotificationsIcon, Search as SearchIcon, 
+         WbSunny as SunIcon, MonetizationOn as MonetizationOnIcon, LiveHelp as FaqIcon, LocationOn as LocationOnIcon
+       } from '@material-ui/icons'
 import { Auth } from 'aws-amplify'
 import { useNavigationStyles } from '../navigationStyles'
 import './NavigationHeader.css'
@@ -51,12 +53,36 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+
       <MenuItem>
-      <IconButton aria-label='weatherButton' color='secondary'>
-          <SunIcon />
-          Weather
-      </IconButton>
+        <IconButton aria-label='locationButton' color='secondary'>
+            <LocationOnIcon style={{marginRight: '5px'}}/>
+            Location
+        </IconButton>
       </MenuItem>
+
+      <MenuItem>
+        <IconButton aria-label='weatherButton' color='secondary'>
+            <SunIcon style={{marginRight: '5px'}}/>
+            Weather
+        </IconButton>
+      </MenuItem>
+
+      <MenuItem>
+        <IconButton aria-label='costButton' color='secondary'>
+            <MonetizationOnIcon style={{marginRight: '5px'}}/>
+            Cost
+        </IconButton>
+      </MenuItem>
+
+      <MenuItem>
+        <IconButton aria-label='faqButton' color='secondary'>
+            <FaqIcon style={{marginRight: '5px'}}/>
+            FAQ
+        </IconButton>
+      </MenuItem>
+
+      
       {/* <MenuItem>
         <IconButton aria-label='show 4 new mails' color='inherit'>
           <Badge badgeContent={4} color='secondary'>
@@ -109,11 +135,24 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color='secondary'>
-              <SunIcon 
-                data-tip='Local Weather'
-              />
+
+           <IconButton color='secondary'>
+              <LocationOnIcon data-tip='Location'/>
             </IconButton>
+
+
+            <IconButton color='secondary'>
+              <SunIcon data-tip='Local Weather'/>
+            </IconButton>
+
+            <IconButton color='secondary'>
+              <MonetizationOnIcon data-tip='Cost'/>
+            </IconButton>
+
+            <IconButton color='secondary'>
+              <FaqIcon data-tip='Frequently Asked Questions'/>
+            </IconButton>
+
             {/* <IconButton aria-label='show 4 new mails' color='inherit'>
               <Badge badgeContent={4} color='secondary'>
                 <MailIcon />

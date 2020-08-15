@@ -12,9 +12,9 @@ const Home = () => {
         <Parallax 
           bgImage={getImageUrl('newportParasailPic.jpg')} 
           strength={500} 
-          bgImageStyle={{ maxHeight: '700px', overFlow: 'hidden', marginBottom: '-500px'}}
+          bgImageStyle={{ height: '800px'}}
         >
-          <div style={{ height: 500 }}>
+          <div style={{ height: 550 }}>
             <div style={{
               position: "absolute",
               top: "30%",
@@ -27,33 +27,12 @@ const Home = () => {
             </div>
           </div>
         </Parallax>
- space
-        <Parallax bgImage={image3} blur={{ min: -1, max: 3 }}>
-          <div style={{ height: 500 }}>
-            <div style={{
-              background: "white",
-              // padding: 20,
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)"
-            }}>Dynamic Blur</div>
-          </div>
-        </Parallax>
-        <h1>| | |</h1>
+
         <Parallax bgImage={image2} strength={-100}>
           <div style={{ height: 500 }}>
-            <div style={{
-              background: "white",
-              padding: 20,
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)"
-            }}>Reverse direction</div>
+
           </div>
         </Parallax>
-        <h1>| | |</h1>
         <Parallax
           bgImage={image4}
           strength={200}
@@ -62,7 +41,7 @@ const Home = () => {
               <div
                 style={{
                   position: "absolute",
-                  background: `rgba(255, 125, 0, ${percentage * 1})`,
+                  background: `rgba(245,0,87, ${percentage * 1})`,
                   left: "50%",
                   top: "50%",
                   borderRadius: "50%",
@@ -77,16 +56,17 @@ const Home = () => {
           <div style={{ height: 500 }}>
             <div style={{
               background: "white",
-              padding: 20,
               position: "absolute",
               top: "50%",
               left: "50%",
               transform: "translate(-50%,-50%)"
-            }}>renderProp</div>
+            }}>
+              <Button variant="contained" color="primary" size="large">
+                Let's Fly!
+              </Button>
+            </div>
           </div>
         </Parallax>
-        <div style={{ height: 500 }} />
-        <h2>{"\u2728"}</h2>
       </div>
     </div>
   )
