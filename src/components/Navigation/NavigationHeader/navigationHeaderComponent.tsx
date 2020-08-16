@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import NavigationDrawer from '../NavigationDrawer'
+import MapDrawer from '../../MapDrawer'
+
 import { AppBar, Badge, Drawer, IconButton, InputBase, MenuItem, Toolbar, Typography, Menu } from '@material-ui/core'
 import { AccountCircle, Mail as MailIcon, Menu as MenuIcon, MoreVert as MoreIcon, Notifications as NotificationsIcon, Search as SearchIcon, 
          WbSunny as SunIcon, MonetizationOn as MonetizationOnIcon, LiveHelp as FaqIcon, LocationOn as LocationOnIcon
@@ -9,7 +11,8 @@ import { useNavigationStyles } from '../navigationStyles'
 import './NavigationHeader.css'
 import ReactToolTip from 'react-tooltip'
 
-const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: NavigationHeaderProps) => {
+
+const NavigationHeader = ({isNavigationDrawerOpen, updateDrawerToggleState}: NavigationHeaderProps) => {
   const classes = useNavigationStyles()
   const [anchorEl, setAnchorEl] = useState(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
@@ -25,6 +28,11 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
   }
 
   const handleMobileMenuOpen = (event: any) => setMobileMoreAnchorEl(event.currentTarget)
+
+  const handleDrawerIconClick = (name: string) => {
+    handleMobileMenuClose()
+    updateDrawerToggleState(name)
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -54,7 +62,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
       onClose={handleMobileMenuClose}
     >
 
-      <MenuItem>
+      <MenuItem onClick={e => handleDrawerIconClick('map')}>
         <IconButton aria-label='locationButton' color='secondary'>
             <LocationOnIcon style={{marginRight: '5px'}}/>
             Location
@@ -126,7 +134,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
             className={classes.menuButton}
             color='secondary'
             aria-label='open drawer'
-            onClick={e => toggleNavigationDrawer(!isNavigationDrawerOpen)}
+            onClick={e => updateDrawerToggleState('navigation')}
           >
             <MenuIcon id='navHeaderHamburgerIcon'/>
           </IconButton>
@@ -137,7 +145,10 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
           <div className={classes.sectionDesktop}>
 
            <IconButton color='secondary'>
-              <LocationOnIcon data-tip='Location'/>
+              <LocationOnIcon 
+                data-tip='Location'
+                onClick={e => updateDrawerToggleState('map')}
+              />
             </IconButton>
 
             <IconButton color='secondary'>
@@ -189,7 +200,12 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
       {renderMobileMenu}
       {renderMenu}
 
-      <NavigationDrawer/>
+      <span id='navigationDrawers'>
+        <NavigationDrawer/>
+        <MapDrawer/>
+
+
+      </span>
 
     </div>
   )
@@ -197,7 +213,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, toggleNavigationDrawer}: Navi
 
 interface NavigationHeaderProps {
   isNavigationDrawerOpen: boolean,
-  toggleNavigationDrawer: Function
+  updateDrawerToggleState: Function
 }
 
 export default NavigationHeader

@@ -3,11 +3,12 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home'
 import CalendarIcon from '@material-ui/icons/Today'
+import { DrawerToggleStateInterface } from '../../../reducers/navigation'
 
 
 import './NavigationDrawer.css'
 
-const NavigationDrawer = ({ isNavigationDrawerOpen, toggleNavigationDrawer }: NavigationDrawerProps) => {
+const NavigationDrawer = ({ isNavigationDrawerOpen, updateDrawerToggleState }: NavigationDrawerProps) => {
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -15,14 +16,14 @@ const NavigationDrawer = ({ isNavigationDrawerOpen, toggleNavigationDrawer }: Na
   const handleRouteClick = (e: any, route: string) => {
     e.preventDefault()
     navigate(route)
-    toggleNavigationDrawer(!isNavigationDrawerOpen)
+    updateDrawerToggleState('navigation')
   }
 
   return (
     <div className='NavigationDrawerContainer'>
       <Drawer
         open={isNavigationDrawerOpen}
-        onClose={e => toggleNavigationDrawer(!isNavigationDrawerOpen)}
+        onClose={e => updateDrawerToggleState('navigation')}
       >
 
         <div id='NavDrawerListContainer'>
@@ -60,7 +61,7 @@ const NavigationDrawer = ({ isNavigationDrawerOpen, toggleNavigationDrawer }: Na
 
 interface NavigationDrawerProps {
   isNavigationDrawerOpen: boolean,
-  toggleNavigationDrawer: Function
+  updateDrawerToggleState: Function
 }
 
 export default NavigationDrawer

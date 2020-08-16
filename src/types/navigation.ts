@@ -1,11 +1,11 @@
 export const NAVIGATION_TOGGLE_DRAWER = 'NAVIGATION_TOGGLE_DRAWER'
 
-interface toggleNavigationDrawer {
+interface updateDrawerToggleState {
   type: typeof NAVIGATION_TOGGLE_DRAWER
-  payload: Boolean
+  payload: String
 }
 
-export type NavigationActionTypes = toggleNavigationDrawer
+export type NavigationActionTypes = updateDrawerToggleState
 
 
 

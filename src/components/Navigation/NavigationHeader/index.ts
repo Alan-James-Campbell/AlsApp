@@ -1,10 +1,11 @@
 import NavigationHeader from './navigationHeaderComponent'
 import { RootState } from '../../../reducers/rootReducer'
 import { connect } from 'react-redux'
-import { toggleNavigationDrawer } from '../../../actions/navigationActions'
+import { updateDrawerToggleState } from '../../../actions/navigationActions'
 
 const mapStateToProps = (state: RootState) => {
-  const { isNavigationDrawerOpen } = state.navigation
+  const { drawerToggleState } = state.navigation
+  const isNavigationDrawerOpen = drawerToggleState.navigation
 
   return {
     isNavigationDrawerOpen
@@ -12,8 +13,8 @@ const mapStateToProps = (state: RootState) => {
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
-  toggleNavigationDrawer(bool: boolean) {
-    dispatch(toggleNavigationDrawer(bool))
+  updateDrawerToggleState(name: string) {
+    dispatch(updateDrawerToggleState(name))
   }
 })
 
