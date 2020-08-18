@@ -28,7 +28,11 @@ const Home = () => {
           </div>
         </Parallax>
 
-        <Parallax bgImage={image2} strength={-100}>
+        <Parallax 
+          bgImage={image2} 
+          strength={-100}
+          bgImageStyle={{ maxWidth: '1483px'}}
+        >
           <div style={{ height: 500 }}>
 
           </div>
@@ -36,6 +40,8 @@ const Home = () => {
         <Parallax
           bgImage={image4}
           strength={200}
+          bgImageStyle={{ maxWidth: '1483px'}}
+
           renderLayer={percentage => (
             <div>
               <div

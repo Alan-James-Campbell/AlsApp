@@ -4,6 +4,7 @@ import _ from 'lodash'
 export interface DrawerToggleStateInterface {
   navigation: boolean,
   map: boolean
+  weather: boolean
 }
 
 export interface NavigationStateInterface {
@@ -14,7 +15,8 @@ export interface NavigationStateInterface {
 const initialState: NavigationStateInterface = {  
     drawerToggleState: {
       navigation: false,
-      map: false
+      map: false,
+      weather: false
     }
 }
 

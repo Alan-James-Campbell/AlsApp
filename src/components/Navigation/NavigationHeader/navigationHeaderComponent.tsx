@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import NavigationDrawer from '../NavigationDrawer'
 import MapDrawer from '../../MapDrawer'
+import WeatherDrawer from '../../WeatherDrawer'
 
 import { AppBar, Badge, Drawer, IconButton, InputBase, MenuItem, Toolbar, Typography, Menu } from '@material-ui/core'
 import { AccountCircle, Mail as MailIcon, Menu as MenuIcon, MoreVert as MoreIcon, Notifications as NotificationsIcon, Search as SearchIcon, 
@@ -69,7 +70,7 @@ const NavigationHeader = ({isNavigationDrawerOpen, updateDrawerToggleState}: Nav
         </IconButton>
       </MenuItem>
 
-      <MenuItem>
+      <MenuItem onClick={e => handleDrawerIconClick('weather')}>
         <IconButton aria-label='weatherButton' color='secondary'>
             <SunIcon style={{marginRight: '5px'}}/>
             Weather
@@ -152,7 +153,10 @@ const NavigationHeader = ({isNavigationDrawerOpen, updateDrawerToggleState}: Nav
             </IconButton>
 
             <IconButton color='secondary'>
-              <SunIcon data-tip='Local Weather'/>
+              <SunIcon 
+                data-tip='Local Weather'
+                onClick={e => updateDrawerToggleState('weather')}
+              />
             </IconButton>
 
             <IconButton color='secondary'>
@@ -203,6 +207,8 @@ const NavigationHeader = ({isNavigationDrawerOpen, updateDrawerToggleState}: Nav
       <span id='navigationDrawers'>
         <NavigationDrawer/>
         <MapDrawer/>
+        <WeatherDrawer/>
+
 
 
       </span>

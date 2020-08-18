@@ -4,8 +4,6 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui
 import HomeIcon from '@material-ui/icons/Home'
 import CalendarIcon from '@material-ui/icons/Today'
 import { DrawerToggleStateInterface } from '../../../reducers/navigation'
-
-
 import './NavigationDrawer.css'
 
 const NavigationDrawer = ({ isNavigationDrawerOpen, updateDrawerToggleState }: NavigationDrawerProps) => {
